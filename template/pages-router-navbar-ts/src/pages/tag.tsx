@@ -4,6 +4,8 @@ type Props = {}
 
 export default function TagPage({}: Props) {
   return (
-    <div>TagPage</div>
+    <main className='flex flex-col h-full items-center justify-center'>
+      Tag Page
+    </main>
   )
 }

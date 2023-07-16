@@ -1,3 +1,4 @@
+import { useAppContext } from '@/app-context';
 import AngelDownIcon from '@/icons/AngelDownIcon';
 import UserIcon from '@/icons/UserIcon';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
@@ -5,11 +6,18 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 const ProfileMenu = () => {
+
+    const { user, logout } = useAppContext() as AppContextType;
+
     const router = useRouter();
 
     const handleSelect = (href: string) => {
-        console.log(href);
         router.push(href);
+    }
+
+    const handleLogout = () => {
+        logout();
+        router.push('/');
     }
 
     return (
@@ -17,7 +25,7 @@ const ProfileMenu = () => {
             <DropdownMenu.Trigger className='nav-dropdown-trigger' asChild>
                 <button type='button' aria-label="Customise options" >
                     <UserIcon className='w-[20px] h-[20px]' />
-                    <span>ferrylinton</span>
+                    <span>{user ? user.username : 'anonymous'}</span>
                     <AngelDownIcon className='w-[10px] h-[10px]' />
                 </button>
             </DropdownMenu.Trigger>
@@ -31,7 +39,7 @@ const ProfileMenu = () => {
                         Change Password
                     </DropdownMenu.Item>
                     <DropdownMenu.Separator className="h-[1px] bg-slate-300 m-[5px]" />
-                    <DropdownMenu.Item onSelect={() => handleSelect('/profile')} className="nav-dropdown-item">
+                    <DropdownMenu.Item onSelect={() => handleLogout()} className="nav-dropdown-item">
                         Logout
                     </DropdownMenu.Item>
                 </DropdownMenu.Content>

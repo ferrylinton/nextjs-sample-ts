@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav-menu.open {
+.nav-menux.open {
   opacity: 1;
   overflow: hidden;
   transform: translateY(0);
 }
 
-.nav-menu.close {
+.nav-menux.close {
   opacity: 0;
   overflow: hidden;
   transform: translateY(-10%);
@@ -36,11 +36,23 @@
   }
 
   .nav-menu {
-    @apply md:flex-row md:relative md:w-auto md:top-auto md:border-0 md:shadow-none
+    @apply md:flex-row md:relative md:w-auto md:top-auto md:border-0 md:shadow-none md:bg-transparent
+  }
+
+  .nav-menu.open {
+    @apply opacity-100 overflow-hidden animate-slideUpAndFade
+  }
+
+  .nav-menu.close {
+    @apply opacity-0 overflow-hidden
   }
 
   .nav-menu a{
-    @apply w-full px-4 py-3 md:px-3 md:py-2 leading-none rounded-[3px] hover:bg-slate-200 border border-white hover:border-slate-300
+    @apply w-full px-4 py-3 md:px-3 md:py-2 leading-none rounded-[3px] hover:bg-slate-200 border border-transparent hover:border-slate-300
+  }
+
+  .nav-menu-button{
+    @apply h-[35px] flex justify-center items-center gap-2 border border-slate-300 rounded-full px-3 outline-none
   }
 
   .nav-dropdown-trigger{
@@ -60,7 +72,7 @@
   }
 
   .nav-dropdown-content{
-    @apply z-50 border border-slate-300 min-w-[200px] bg-white rounded-md p-[5px] shadow-[0px_5px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_5px_20px_-15px_rgba(22,_23,_24,_0.2)]
+    @apply z-50 border border-slate-300 min-w-[200px] bg-white rounded-md p-[5px] shadow-[0px_5px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_5px_20px_-15px_rgba(22,_23,_24,_0.2)] data-[side=bottom]:animate-slideUpAndFade
   }
 
   .nav-dropdown-item{

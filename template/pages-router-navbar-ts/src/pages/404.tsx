@@ -1,7 +1,7 @@
-export default function HomePage() {
+export default function NotFound() {
   return (
     <main className='flex flex-col h-full items-center justify-center'>
-      Home Page
+      404 - Page Not Found
     </main>
-  )
+  );
 }

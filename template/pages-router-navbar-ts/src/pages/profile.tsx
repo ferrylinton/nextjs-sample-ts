@@ -4,6 +4,8 @@ type Props = {}
 
 export default function ProfilePage({}: Props) {
   return (
-    <div>profile</div>
+    <main className='flex flex-col h-full items-center justify-center'>
+      Profile Page
+    </main>
   )
 }
