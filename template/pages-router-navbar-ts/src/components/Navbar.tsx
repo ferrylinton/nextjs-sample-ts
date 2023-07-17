@@ -4,9 +4,12 @@ import React from 'react';
 import LocaleMenu from './LocaleMenu';
 import ProfileMenu from './ProfileMenu';
 import { useAppContext } from '@/app-context';
+import { useRouter } from 'next/router';
 
 
 export default function Navbar() {
+
+    const router = useRouter();
 
     const { user } = useAppContext() as AppContextType;
 
@@ -14,6 +17,9 @@ export default function Navbar() {
 
     const onClickHandler = (e: React.MouseEvent<HTMLAnchorElement>): void => {
         setIsOpen(false);
+        //e.preventDefault();
+        //console.log(e.currentTarget.href);
+        //router.push(e.currentTarget.href);
     }
 
     return (
