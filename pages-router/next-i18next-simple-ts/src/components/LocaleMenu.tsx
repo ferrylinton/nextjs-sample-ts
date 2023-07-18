@@ -1,3 +1,5 @@
+'use client';
+
 import AngelDownIcon from '@/icons/AngelDownIcon';
 import CheckIcon from '@/icons/CheckIcon';
 import EnIcon from '@/icons/EnIcon';
@@ -5,6 +7,7 @@ import IdIcon from '@/icons/IdIcon';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { useTranslation } from 'next-i18next';
 
 const locales = [
     { "value": "id", "label": "Indonesia", "flag": <IdIcon className='w-[28px] h-[21px] border border-slate-300 rounded shadow-md' /> },
@@ -15,16 +18,16 @@ const LocaleMenu = () => {
 
     const router = useRouter();
 
-    const [locale, setLocale] = React.useState('id');
+    const { i18n } = useTranslation('common');
 
     const handleSelectLocale = (value: string) => {
-        console.log(value);
-        setLocale(value);
+        const { pathname, asPath, query } = router;      
+        router.push({ pathname, query }, asPath, { locale: value });
     }
 
     const getFlag = () => {
         for (let i = 0; i < locales.length; i++) {
-            if (locales[i].value === locale) {
+            if (locales[i].value === i18n.language) {
                 return locales[i].flag
             }
         }
@@ -41,7 +44,7 @@ const LocaleMenu = () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
                 <DropdownMenu.Content className="nav-dropdown-content" side='bottom' sideOffset={5} align='end' alignOffset={5}>
-                    <DropdownMenu.RadioGroup value={locale} onValueChange={handleSelectLocale}>
+                    <DropdownMenu.RadioGroup value={i18n.language} onValueChange={handleSelectLocale}>
                         {
                             locales.map((locale) => {
                                 return (
