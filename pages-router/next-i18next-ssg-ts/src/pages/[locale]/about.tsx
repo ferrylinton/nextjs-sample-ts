@@ -1,7 +1,7 @@
-import { useTranslation } from 'next-i18next'
-import { getStaticPaths, makeStaticProps } from '../../libs/getStatic'
+import { useTranslation } from 'next-i18next';
+import { getStaticPaths, getStaticProps } from '../../libs/ssg-locale-helper';
 
-const AboutPage = () => {
+export default function AboutPage() {
   const { t } = useTranslation(['common'])
 
   return (
@@ -11,8 +11,5 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
 
-const getStaticProps = makeStaticProps(['common']);
-
-export { getStaticPaths, getStaticProps }
+export { getStaticPaths, getStaticProps };

@@ -23,6 +23,7 @@ export default function Navbar() {
                 <div className='text-2xl font-bold uppercase'>logo</div>
                 <div className={`nav-menu  ${isOpen ? 'open' : 'close'}`}>
                     <Link onClick={onClickHandler} href='/'>{t('home')}</Link>
+                    <Link onClick={onClickHandler} href='/posts'>{t('post')}</Link>
                     <Link onClick={onClickHandler} href='/about'>{t('about')}</Link>
                 </div>
                 <div onClick={() => setIsOpen(false)} className={` bg-transparent fixed inset-0 ${isOpen ? 'z-[51] md:hidden' : 'hidden'}`} />

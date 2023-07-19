@@ -7,7 +7,7 @@ type Props = {
   locale?: string
 } & LinkProps & HTMLProps<HTMLAnchorElement>;
 
-const StaticLink = ({ children, skipLocaleHandling, href, ...rest }: Props) => {
+const StaticLink = ({ children, skipLocaleHandling, href, className, ...rest }: Props) => {
   const router = useRouter()
   const locale = rest.locale || router.query.locale || ''
 
@@ -21,7 +21,7 @@ const StaticLink = ({ children, skipLocaleHandling, href, ...rest }: Props) => {
 
   return (
     <>
-      <Link href={newHref}>
+      <Link href={newHref} className={className}>
         {children}
       </Link >
     </>

@@ -1,2 +1,5 @@
-import { Redirect } from '../libs/redirect'
-export default Redirect
+import { Redirect } from '../libs/redirect';
+import { getStaticProps } from '../libs/ssg-locale-helper';
+
+export default Redirect;
+export { getStaticProps };
