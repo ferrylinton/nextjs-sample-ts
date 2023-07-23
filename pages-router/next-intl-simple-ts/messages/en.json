@@ -1,0 +1,9 @@
+{
+    "common": {
+        "home": "Home",
+        "about": "About",
+        "login": "Login",
+        "redirect": "Redirect",
+        "notFound": "Not Found"
+    }
+}

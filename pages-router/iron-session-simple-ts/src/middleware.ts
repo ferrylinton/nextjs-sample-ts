@@ -5,6 +5,8 @@ import { sessionOptions } from "./libs/session";
 
 
 export const middleware = async (req: NextRequest) => {
+    console.log(req.nextUrl.locale);
+    const locale = (req.nextUrl.locale === 'id' ? '' : req.nextUrl.locale);
     const res = NextResponse.next();
     const session = await getIronSession(req, res, sessionOptions);
 
@@ -28,7 +30,7 @@ export const middleware = async (req: NextRequest) => {
         if (req.nextUrl.pathname.startsWith("/api")) {
             return NextResponse.json({ message: 'Auth required' }, { status: 401 })
         } else {
-            return NextResponse.redirect(new URL(`/login`, req.url));
+            return NextResponse.redirect(new URL(`/${locale}/login`, req.url));
         }
     }
 
@@ -36,5 +38,5 @@ export const middleware = async (req: NextRequest) => {
 };
 
 export const config = {
-    matcher: ['/profile', '/changepassword'],
+    matcher: ['/profile', '/changepassword', '/api/about'],
 };
