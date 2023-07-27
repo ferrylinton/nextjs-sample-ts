@@ -1,0 +1,10 @@
+{
+    "common": {
+        "home": "Beranda",
+        "about": "Informasi",
+        "login": "Masuk",
+        "redirect": "Alihkan",
+        "notFound": "Tidak Ditemukan"
+    },
+    "title": "Contoh Next-Intl"
+}

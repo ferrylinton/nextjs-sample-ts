@@ -9,7 +9,10 @@ export default function NotFoundPage() {
 
   return (
     <main className='flex flex-col h-full items-center justify-center'>
-      {t('notFound')}
+      <div className='flex flex-col gap-6 items-center justify-center'>
+        <div className='leading-none text-5xl'>404</div>
+        <div className='leading-none text-lg'>{t('notFound')}</div>
+      </div>
     </main>
   )
 }

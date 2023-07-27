@@ -1,11 +1,9 @@
+const { i18n } = require('./locale-config');
+
 const nextConfig = {
   reactStrictMode: false,
   trailingSlash: true,
-  i18n: {
-    defaultLocale: 'id',
-    locales: ['id', 'en'],
-    localeDetection: false,
-  },
+  i18n
 }
 
 module.exports = nextConfig

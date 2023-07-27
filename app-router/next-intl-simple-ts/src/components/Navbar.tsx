@@ -1,10 +1,9 @@
-//'use client';
+'use client';
 
 import Link from '@/components/NavLink';
 import CloseIcon from '@/icons/CloseIcon';
 import MenuIcon from '@/icons/MenuIcon';
 import clsx from 'clsx';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import LocaleMenu from './LocaleMenu';
 
@@ -17,15 +16,13 @@ export default function Navbar() {
         setIsOpen(false);
     }
 
-    const t = useTranslations('common');
-
     return (
         <>
             <nav className='flex-none fixed top-0 left-0 w-full h-[50px] bg-white border-b border-slate-300 flex items-center px-2 z-50 shadow-md shadow-gray-200 '>
                 <div className='text-2xl font-bold uppercase'>logo</div>
                 <div className={`nav-menu  ${isOpen ? 'open' : 'close'}`}>
-                    <Link onClick={() => onClickHandler()} href='/'>{t('home')}</Link>
-                    <Link onClick={() => onClickHandler()} href='/about'>{t('about')}</Link>
+                    <Link onClick={() => onClickHandler()} href='/'>Home</Link>
+                    <Link onClick={() => onClickHandler()} href='/about'>About</Link>
                 </div>
                 <div onClick={() => setIsOpen(false)} className={clsx('bg-transparent fixed inset-0 z-[51] md:hidden', !isOpen && 'hidden')} />
                 <div className='ml-auto flex items-center gap-3'>
